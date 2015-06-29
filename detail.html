@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/menu-css.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" href="css/detail.css">
+
+   
+</head>
+
+<body>
+    <div class="topbar-wrap white">
+        <div class="topbar-inner clearfix">
+            <div class="topbar-logo-wrap clearfix">
+                <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
+                <ul class="navbar-list clearfix">
+                    <li><a class="on" href="index.html">首页</a></li>
+                </ul>
+            </div>
+            <div class="top-info-wrap">
+                <ul class="top-info-list clearfix">
+                    <li id="username">景升</li>
+                    <li><a href="#">修改密码</a></li>
+                    <li><a href="#">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container clearfix">
+        <div class="sidebar-wrap">
+            <div class="sidebar-title">
+                <h1>菜单</h1>
+            </div>
+            <div class="sidebar-content">
+                <ul class="sidebar-list">
+                    <li>
+                        <a href="#"><i class="icon-font">&#xe003;</i>收件箱</a>
+                        <ul class="sub-menu">
+                            <li><a href="#"><i class="icon-font">&#xe004;</i>未分发</a></li>
+                            <li><a href="#"><i class="icon-font">&#xe037;</i>已分发</a></li>
+                            <li><a href="design.html"><i class="icon-font">&#xe046;</i>回退邮件</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--/sidebar-->
+        <div class="main-wrap">
+            <div class="crumb-wrap">
+                <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">作品管理</span></div>
+            </div>
+            <!-- <div class="search-wrap">
+            <div class="search-content">
+                <form action="#" method="post">
+                    <table class="search-tab">
+                        <tr>
+                            <th width="120">选择分类:</th>
+                            <td>
+                                <select name="search-sort" id="">
+                                    <option value="">全部</option>
+                                    <option value="19">精品界面</option><option value="20">推荐界面</option>
+                                </select>
+                            </td>
+                            <th width="70">关键字:</th>
+                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
+                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div> -->
+            <div class="result-wrap">
+                <form name="myform" id="myform" method="post">
+                    <div class="result-title">
+                        <div class="result-list">
+                            <a href="insert.html"><i class="icon-font"></i>新增作品</a>
+                            <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                            <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
+                        </div>
+                    </div>
+                    <!-- 内容开始 -->
+                    <div class="content">
+                        <div class="col-md-9" style="margin-top: 20px;">
+                            <div class="head">
+                                <span style="color: gray">标题:</span>
+                                <span id="title">关于小学期调时间这件事</span>
+                            </div>
+                            <div>
+                                <span style="color: gray">发件人:</span>
+                                <span id="from">李旭</span>
+                            </div>
+                            <div>
+                                <span style="color: gray">收件人:</span>
+                                <span id="to">魏星</span>
+                            </div>
+                            <!-- 具体内容开始 -->
+                            <div class="details">
+                                
+                            </div>
+                            <!-- 具体内容结束 -->
+                        </div>
+                        <div class="col-md-3" style="margin-top: 68px;">
+                            <div style="text-align: center;font-size: 1.2em;color: gray">
+                                <i class="fa fa-user"></i> 选择分发人
+                            </div>
+                            <!-- 选择处理人员开始 -->
+                            <div style="border:1px solid #cdcdcd;height:350px;background-color: #f7f8f9;padding: 10px 5px;">
+                                <input style="display: inline-block;width: 90%;" type="text" class="form-control" placeholder="查找联系人">
+                                <span class="fa fa-search" style="color:gray;display: inline-block;cursor: pointer"></span>
+                                <div class="menu">
+                                    <ul>
+                                        <li><a class="active" style="cursor: pointer">财务部
+                                        </a>
+                                            <ul style="display: block;">
+                                                <li><input type="checkbox">李旭</li>
+                                                <li><input type="checkbox">魏星</li>
+                                                <li><input type="checkbox">李旭</li>
+                                                <li><input type="checkbox">李旭
+                                                </li>
+                                                <li><input type="checkbox">李旭</li>
+                                            </ul>
+                                        </li>
+                                        <li><a style="cursor: pointer">市场部</a>
+                                            <ul>
+                                                <li><input type="checkbox">李旭</li>
+                                                <li><input type="checkbox">李旭</li>
+                                                <li><input type="checkbox">李旭</li>
+                                                <li><input type="checkbox">李旭</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn-info" style="position: absolute;bottom: 10px;left: 20%;width: 60%;">
+                                    发送邮件
+                                </button>
+                            </div>
+                            <!-- 选择处理人员结束 -->
+                        </div>
+                    </div>
+                    <!-- 内容结束 -->
+                </form>
+            </div>
+        </div>
+        <!--/main-->
+    </div>
+</body>
+<script src="js/jquery.js"></script>
+<script type="text/javascript" src="js/menu_min.js"></script>
+<script src="js/detail.js"></script>
+
+</html>

@@ -2,32 +2,33 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>『豪情』后台管理</title>
+    <title>登陆界面</title>
 	<link rel="stylesheet" type="text/css" href="css/admin_login.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
 <div class="admin_login_wrap">
-    <h1>后台管理</h1>
+    <h1 style="text-align: center">登陆</h1>
     <div class="adming_login_border">
-        <div class="admin_input">
-            <form action="index.html" method="post">
+        <div class="admin_input" >
+            <form>
                 <ul class="admin_items">
                     <li>
-                        <label for="user">用户名：</label>
-                        <input type="text" name="username" value="admin" id="user" size="40" class="admin_input_style" />
+                        <input type="text" name="username"  id="username" size="40" class="admin_input_style" placeholder="username"/>
                     </li>
                     <li>
-                        <label for="pwd">密码：</label>
-                        <input type="password" name="pwd" value="admin" id="pwd" size="40" class="admin_input_style" />
+                        <input id="password" type="password"  value="admin" id="pwd" size="40" class="admin_input_style" placeholder="password"/>
                     </li>
                     <li>
-                        <input type="submit" tabindex="3" value="提交" class="btn btn-primary" />
+                        <input id="login" style="margin-top: 10px;" type="button" tabindex="3" value="登陆" class="btn btn-primary" />
                     </li>
                 </ul>
             </form>
         </div>
     </div>
-    <p class="admin_copyright"><a tabindex="5" href="http://www.17sucai.com/" target="_blank">返回首页</a> &copy; 2014 Powered by <a href="http://www.17sucai.com/" target="_blank">17素材网</a></p>
+   
 </div>
 </body>
+<script src="js/jquery.js"></script>
+<script src="js/login.js"></script>
 </html>

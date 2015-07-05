@@ -22,7 +22,7 @@ $(document).ready(function() {
                     var text = '<tr data-id=' + email_id + '>' 
                                 + '<td class="tc"><input id=' + email_id + ' type="checkbox"></td>' 
                                 + '<td>' + email_from + '</td>' 
-                                + '<td><a data-detail=true data-id='+ email_id +' href="dist_detail.html" >' + email_title + '</a></td>' 
+                                + '<td><a data-detail=true data-id='+ email_id +' href="inspc_detail.html" >' + email_title + '</a></td>' 
                                 + '<td>' + create_time + '</td>' 
                                 + '<td>' + '<a>' + vstatus + '</a>' + '</td>' 
                                 + '<td>' 
@@ -63,7 +63,7 @@ function allchoose() {
 
 
 function detail(){
-    $("#email-list").on('click',function(e){
+    $(".result-tab").on('click',function(e){
         var obj = e.target;
         if ($(obj).attr('data-detail')) {
             session.chooseid = $(obj).attr('data-id');

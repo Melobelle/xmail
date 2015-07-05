@@ -79,7 +79,7 @@
                                 <span id="to">魏星</span>
                             </div>
                             <!-- 具体内容开始 -->
-                            <div class="details">
+                            <div id="content" class="details">
                                 
                             </div>
                             <!-- 具体内容结束 -->
@@ -96,28 +96,16 @@
                                     <ul>
                                         <li><a class="active" style="cursor: pointer">财务部
                                         </a>
-                                            <ul style="display: block;">
-                                                <li><input type="checkbox">李旭</li>
-                                                <li><input type="checkbox">魏星</li>
-                                                <li><input type="checkbox">李旭</li>
-                                                <li><input type="checkbox">李旭
-                                                </li>
-                                                <li><input type="checkbox">李旭</li>
+                                            <ul id="render" style="display: block;">
                                             </ul>
                                         </li>
-                                        <li><a style="cursor: pointer">市场部</a>
-                                            <ul>
-                                                <li><input type="checkbox">李旭</li>
-                                                <li><input type="checkbox">李旭</li>
-                                                <li><input type="checkbox">李旭</li>
-                                                <li><input type="checkbox">李旭</li>
-                                            </ul>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
-                                <button class="btn btn-info" style="position: absolute;bottom: 10px;left: 20%;width: 60%;">
-                                    发送邮件
-                                </button>
+                                <div id="tip" style="display:none;margin:0 auto;width: 60%;text-align: center;margin-top: 100px;" class="alert alert-success">发送成功！</div>
+                                <input id="send-email" type="button" class="btn btn-info" style="position: absolute;bottom: 10px;left: 20%;width: 60%;" value="发送邮件">
+                                   
+                                </input>
                             </div>
                             <!-- 选择处理人员结束 -->
                         </div>
@@ -131,6 +119,14 @@
 </body>
 <script src="js/jquery.js"></script>
 <script type="text/javascript" src="js/menu_min.js"></script>
-<script src="js/detail.js"></script>
+<script src="js/dist_detail.js"></script>
+<script src="js/jsrender.min.js"></script>
 
+<<<<<<< HEAD:detail.html
 </html>
+=======
+<script id="temple" type="text/x-jsrender">
+    <li><input data-id= {{:id}} type="checkbox">{{:nickname}}</li>
+</script>
+</html>
+>>>>>>> c8f7979c6e06cb57ad4621500a784d3b6c535969:dist_detail.html

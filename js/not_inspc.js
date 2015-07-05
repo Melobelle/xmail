@@ -3,28 +3,28 @@ var session = window.sessionStorage;
 
 $(document).ready(function() {
     $.ajax({
-            url: URL + 'Email/getNeedEmailList',
+            url: URL + 'Check/getNeedEmailList',
             type: 'POST',
             dataType: 'json',
-            data: ""
+            data: {'user_id':session.user_id}
         })
         .done(function(data) {
             if (data.status) {
                 $.each(data.data, function(index, obj) {
-                    var email_id = obj.id;
-                    var email_title = obj.title;
-                    var email_content = obj.content;
-                    var email_from = obj.from;
-                    var isdistributed = obj.isdistributed;
-                    var create_time = obj.create_time;
-                    var update_time = obj.update_time;
+                    var email_id = obj.mid;
+                    var email_title = obj.mtitle;
+                    var email_content = obj.mcontent;
+                    var email_from = obj.mfrom;
+                    var create_time = obj.pcreate_time;
+                    var update_time = obj.pupdate_time;
+                    var vstatus = obj.vstatus;
 
                     var text = '<tr data-id=' + email_id + '>' 
                                 + '<td class="tc"><input id=' + email_id + ' type="checkbox"></td>' 
                                 + '<td>' + email_from + '</td>' 
                                 + '<td><a data-detail=true data-id='+ email_id +' href="dist_detail.html" >' + email_title + '</a></td>' 
                                 + '<td>' + create_time + '</td>' 
-                                + '<td>' + '<a>' + isdistributed + '</a>' + '</td>' 
+                                + '<td>' + '<a>' + vstatus + '</a>' + '</td>' 
                                 + '<td>' 
                                 + '<button class="btn btn-default">删除</button>' 
                                 + '</td>' 

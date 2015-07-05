@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>已分发</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <base target="_parent">
+</head>
+<body>
+	<div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-title">
+                    <div class="result-list">
+                        <a href="insert.html"><i class="icon-font"></i>这是已分发页面</a>
+                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                        <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
+                    </div>
+                </div>
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th>发件人</th>
+                            <th>主题</th>
+                            <th>更新日期</th>
+                            <th>截止日期</th>
+                            <th>分发人员</th>
+                            <th>操作</th>
+                        </tr>                        
+
+                    </table>
+                    <div class="list-page"> 2 条 1/1 页</div>
+                </div>
+            </form>
+        </div>
+</body>
+<script src="js/jquery.js"></script>
+<script>
+    var URL = "http://www.sxbox.cc/xmail/index.php/Home/"
+    var session = window.sessionStorage;
+    $(document).ready(function() {
+        getNeedMail();    
+    })
+
+    //获取处理列表中还未处理的邮件
+    function getNeedMail() {
+        $.ajax({
+            url: URL + 'Handlemail/handledDistributedList',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                'username' : session.username
+            },
+        })
+        .done(function(data) {
+            console.log(data);
+            if (data.status) {
+                $.each(data.data, function(index, obj) {
+                    console.log(obj);
+                    var from = obj.from;//发送人员
+                    var title = obj.title;//主题
+                    var duser_name = obj.duser_id;//分发人员id
+                    var deadline = obj.deadline;//截止日期
+                    var update_time = obj.update_time;//更新时间
+                    var mail_id = obj.mail_id;//mail id                                     
+                    var text = '<tr data-id='+mail_id+'>'
+                                +'<td class="tc"><input id='+mail_id+' type="checkbox"></td>'
+                                +'<td>'+from+'</td>'
+                                +'<td><a href="detail_deal.html" >'+title+'</a></td>'
+                                +'<td>'+update_time+'</td>'
+                                +'<td>'+deadline+'</td>'
+                                +'<td>'
+                                +'<a>'+duser_name+'</a>'
+                                +'</td>'
+                                +'<td>'
+                                +'<button class="btn btn-default">删除</button>'
+                                +'</td>'
+                                +'</tr>';                
+                    $(".result-tab").append(text);                
+                });
+            };
+            console.log(session.username + " getHandleredMail success");
+            console.log(session.username + " getNeedMail success");
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+    }   
+
+</script>
+</html>

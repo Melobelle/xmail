@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/common.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" href="css/detail.css">   
+    <link rel="stylesheet" href="css/detail.css">
+
+   
 </head>
 
 <body>
@@ -79,36 +81,20 @@
                                 <span id="to">魏星</span>
                             </div>
                             <!-- 具体内容开始 -->
-                            <div id="content" class="details">
+                            <div class="details">
                                 
                             </div>
                             <!-- 具体内容结束 -->
-                        </div>
-                        <div class="col-md-3" style="margin-top: 68px;">
-                            <div style="text-align: center;font-size: 1.2em;color: gray">
-                                <i class="fa fa-user"></i> 选择分发人
-                            </div>
-                            <!-- 选择处理人员开始 -->
-                            <div style="border:1px solid #cdcdcd;height:350px;background-color: #f7f8f9;padding: 10px 5px;">
-                                <input style="display: inline-block;width: 90%;" type="text" class="form-control" placeholder="查找联系人">
-                                <span class="fa fa-search" style="color:gray;display: inline-block;cursor: pointer"></span>
-                                <div class="menu">
-                                    <ul>
-                                        <li><a class="active" style="cursor: pointer">财务部
-                                        </a>
-                                            <ul id="render" style="display: block;">
-                                            </ul>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                                <div id="tip" style="display:none;margin:0 auto;width: 60%;text-align: center;margin-top: 100px;" class="alert alert-success">发送成功！</div>
-                                <input id="send-email" type="button" class="btn btn-info" style="position: absolute;bottom: 10px;left: 20%;width: 60%;" value="发送邮件">
-                                   
-                                </input>
-                            </div>
-                            <!-- 选择处理人员结束 -->
-                        </div>
+                            
+
+                            <!-- 具体内容开始 -->
+                            <textarea id="reply" class="form-control" style="height:150px;width:100%;margin-bottom:10px;" placeholder="输入回复...">
+                            </textarea>
+
+                            <input value="回复邮件" type="button" class="btn btn-info" id="answer" style="bottom:100px;width: 15%;margin-right:100px;margin-left:100px">
+
+                            <input value="提交审核" type="button" class="btn btn-info" id="sendback" style="bottom:100px;width: 15%;">
+                        </div>                        
                     </div>
                     <!-- 内容结束 -->
                 </form>
@@ -119,14 +105,73 @@
 </body>
 <script src="js/jquery.js"></script>
 <script type="text/javascript" src="js/menu_min.js"></script>
-<script src="js/dist_detail.js"></script>
-<script src="js/jsrender.min.js"></script>
+<script>
+    var URL = "http://www.sxbox.cc/xmail/index.php/Home/";
+    var session = window.sessionStorage;
 
-<<<<<<< HEAD:detail.html
-</html>
-=======
-<script id="temple" type="text/x-jsrender">
-    <li><input data-id= {{:id}} type="checkbox">{{:nickname}}</li>
+    $(document).ready(function() {
+        getMailDetail();
+        
+        $('#answer').click(function(event) {
+            alert('Yee, 回复成功了也');
+            console.log(session);
+        });
+
+        $('#sendback').click(function(event) {
+             var info = {
+                'username' : session.username,
+                'mail_id' : session.email_id,
+                'content' : $('#reply').val(),
+                'user_id' : session.user_id
+             }
+             $.ajax({
+                 url: URL+'Handlemail/submitCheckReply',
+                 type: 'POST',
+                 dataType: 'json',
+                 data: info
+             })
+             .done(function(data) {
+                 console.log("success");
+             })
+             .fail(function() {
+                 console.log("error");
+             })
+             .always(function() {
+                 console.log("complete");
+             });
+             
+        });    
+    });
+
+    function getMailDetail() {
+        $.ajax({
+            url: URL + 'Handlemail/mailDetails',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                'mail_id' : 1
+            },
+        })
+        .done(function(data) {
+            console.log(data);
+            var title = data.data.title;
+            var content = data.data.content;
+            var from = data.data.from;
+            var create_time = data.data.create_time;
+            var update_time = data.data.update_time;
+            $('#title').text(title);
+            $('#from').text(from);
+            $('#to').text('北京sxbox科技有限公司');
+            $('.details').text(content);
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+        
+    }
 </script>
+
 </html>
->>>>>>> c8f7979c6e06cb57ad4621500a784d3b6c535969:dist_detail.html

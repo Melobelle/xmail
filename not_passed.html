@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>已分发</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <base target="_parent">
+</head>
+<body>
+	<div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-title">
+                    <div class="result-list">
+                        <a href="insert.html"><i class="icon-font"></i>这是已分发页面</a>
+                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                        <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
+                    </div>
+                </div>
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th>发件人</th>
+                            <th>主题</th>
+                            <th>更新日期</th>
+                            <th>截止日期</th>
+                            <th>分发人员</th>
+                            <th>操作</th>
+                        </tr>                        
+
+                    </table>
+                    <div class="list-page"> 2 条 1/1 页</div>
+                </div>
+            </form>
+        </div>
+</body>
+<script src="js/jquery.js"></script>
+<script type="text/javascript">
+    //获取处理已经被回退完成的邮件
+    function getNotPassMail() {
+        $.ajax({
+            url: URL + '',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                
+            },
+        })
+        .done(function(data) {
+            console.log(data);
+            console.log(session.username + " getNotPassMail success");
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+    }
+
+</script>
+</html>

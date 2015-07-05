@@ -24,7 +24,9 @@ function login() {
             if (data.status) {
                 session.username = $("#username").val();
                 var tp = data.data.role;
+                session.user_id = data.data.user_id;
                 console.log(tp);
+                console.log(data.data.user_id);
                 switch (tp) {
                     case '1':
                         window.location.href = "distributor.html";

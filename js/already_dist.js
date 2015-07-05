@@ -3,7 +3,7 @@ var session = window.sessionStorage;
 
 $(document).ready(function() {
     $.ajax({
-            url: URL + 'Email/getNeedEmailList',
+            url: URL + 'Email/getDistributedEmailList',
             type: 'POST',
             dataType: 'json',
             data: ""
@@ -29,6 +29,7 @@ $(document).ready(function() {
                                 + '<button class="btn btn-default">删除</button>' 
                                 + '</td>' 
                                 + '</tr>';
+                    console.log(text);
                     $(".result-tab").append(text);
 
                 });

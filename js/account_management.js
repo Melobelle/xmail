@@ -2,7 +2,7 @@ $(document).ready(function() {
     $.ajax({
             // url: URL + 'Admin/setMailInfo',
             // url: 'http://www.sxbox.cc/xmail/index.php/Home/Admin/userList',
-            url: 'http://localhost/xmail/index.php/Home/Admin/userList',
+            url: 'http://www.sxbox.cc/xmail/index.php/Home/Admin/userList',
             type: 'POST',
             dataType: 'json',
             data: null

@@ -4,6 +4,8 @@ var session = window.sessionStorage;
 
 $(document).ready(function() {
 	changePassword();
+
+	$("#username").text(session.username);
 });
 
 function changePassword(){

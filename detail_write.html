@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>发送邮件</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/menu-css.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/iosOverlay.css">
+    <link rel="stylesheet" href="css/flat-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/simditor.css" />
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+
+<body>
+    <div class="topbar-wrap white">
+        <div class="topbar-inner clearfix">
+            <div class="topbar-logo-wrap clearfix">
+                <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
+                <ul class="navbar-list clearfix">
+                    <li><a class="on" href="handler.html">首页</a></li>
+                </ul>
+            </div>
+            <div class="top-info-wrap">
+                <ul class="top-info-list clearfix">
+                    <li id="username">root</li>
+                    <li><a href="password.html">修改密码</a></li>
+                    <li><a href="handler.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container clearfix">
+        <div class="sidebar-wrap">
+            <div class="sidebar-title">
+                <h1>菜单</h1>
+            </div>
+            <div class="sidebar-content">
+                <ul class="sidebar-list">
+                    <li>
+                        <a><i class="icon-font">&#xe003;</i>收件箱</a>
+                        <ul class="sub-menu">
+                            <li><a href="handler.html"><i class="icon-font">&#xe004;</i>未处理</a></li>
+                            <li><a href="handler.html"><i class="icon-font">&#xe037;</i>已处理</a></li>
+                            <li><a href="handler.html"><i class="icon-font">&#xe046;</i>回退邮件</a></li>
+                            <li><a href="detail_write.html"><i class="icon-font">&#xe004;</i>发送邮件</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--/sidebar-->
+        <div class="main-wrap">
+            <div class="crumb-wrap">
+                <div class="crumb-list"><i class="icon-font"></i><a href="handler.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">邮件详情</span></div>
+            </div>
+            <div class="result-wrap">
+                <form name="myform" id="myform" method="post">
+                    <!-- 内容开始 -->
+                    <div class="content">
+                        <div class="col-md-12" style="margin-top: 20px;">
+                            <div style="margin-bottom: 10px;">
+                                <span class="tag label label-success">发件人</span> :
+                                <span id="from" style="display: inline-block!important;width: 200px;height: 30px;">
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <span class="label label-success">收件人</span> :
+                                <input id="to" class="form-control" style="display: inline-block!important;width: 200px;height: 30px;">
+                            </div>
+                            <div class="head" style="margin-bottom: 5px;">
+                                <span class="label label-primary">标&nbsp&nbsp&nbsp题</span> :
+                                <input id="title" class="form-control" style="display: inline-block!important;width: 200px;height: 30px;">
+                            </div>
+                            <!-- 具体内容开始 -->
+                            <!-- 具体内容结束 -->
+                            <!-- 具体内容开始 -->
+                            <textarea id="editor" class="form-control" style="height:150px;width:100%;margin-bottom:10px;">
+                            </textarea>
+                            <input value="发送邮件" type="button" class="btn  btn-primary" id="send" style="margin-top:10px;bottom:100px;width: 15%;">
+                        </div>
+                    </div>
+                    <!-- 内容结束 -->
+                </form>
+            </div>
+        </div>
+        <!--/main-->
+    </div>
+    <div id="notification">
+    </div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/flat/flat-ui.min.js"></script>
+<script type="text/javascript" src="js/simditor-all.js"></script>
+<script type="text/javascript" src="js/menu_min.js"></script>
+<script src="js/iosOverlay.js"></script>
+<script src="js/prettify.js"></script>
+<script type="text/javascript">
+var editor = new Simditor({
+    textarea: $('#editor')
+});
+</script>
+<script>
+var URL = "http://www.sxbox.cc/xmail/index.php/Home/";
+var session = window.sessionStorage;
+
+$(document).ready(function() {
+    setUsername();
+    sendEmail();
+});
+
+function sendEmail() {
+    $("#send").click(function(event) {
+        var info = {
+            'username':session.username,
+            'title':$("#title").val(),
+            'to':$("#to").val(),
+            'content':$("#editor").val()
+        }
+        $.ajax({
+            url: URL+'Handlemail/sendPost',
+            type: 'POST',
+            dataType: 'json',
+            data: info
+        })
+        .done(function(data) {
+            if (data.status) {
+                iosOverlay({
+                        text: "发送成功!",
+                        duration: 2e3,
+                        icon: 'images/check.png'
+                    });
+            }
+        })
+        .fail(function() {
+            iosOverlay({
+                        text: "发送失败!",
+                        duration: 2e3,
+                        icon: 'images/cross.png'
+                    });
+        })
+        .always(function() {
+        });
+        
+    });
+}
+
+function setUsername(){
+    $("#from").text(session.username);
+}
+
+</script>
+
+</html>

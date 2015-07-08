@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>添加用户</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <base target="_parent">
+</head>
+<body>
+	<div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-content">
+                    <table class="insert-tab" width="100%">
+                        <tbody><tr>
+                        </tr>
+                            <tr>
+                                <th><i class="require-red"></i>用户名：</th>
+                                <td>
+                                    <input class="common-text required" id="username" name="username" size="50" value="" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>密码：</th>
+                                <td><input class="common-text" id="password" name="password" size="50" value="" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>昵称：</th>
+                                <td><input class="common-text" id="nickname" name="nickname" size="50" value="" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>角色：</th>
+                                <td><input class="common-text" id="role" name="role" size="50" value="" type="text"></td>
+                            </tr>
+                        <tr>
+                                <th></th>
+                                <td>
+                                    <input id="submitUser" class="btn btn-primary btn6 mr10" value="提交" type="button">
+                                    <input class="btn btn6" onClick="history.go(-1)" value="返回" type="button">
+                                </td>
+                            </tr>
+                        </tbody></table>
+               
+                </div>
+            </form>
+        </div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/add_user.js"></script>
+</html>

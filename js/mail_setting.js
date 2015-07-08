@@ -3,7 +3,7 @@ var URL = "http://localhost/xmail/index.php/Home/"
 $(document).ready(function() {
 	$.ajax({
             // url: URL + 'Admin/setMailInfo',
-            url: 'http://localhost/xmail/index.php/Home/Admin/getMailInfo',
+            url: 'http://www.sxbox.cc/xmail/index.php/Home/Admin/getMailInfo',
             type: 'POST',
             dataType: 'json',
             data: null
@@ -36,7 +36,7 @@ function submitInfo() {
 
      $.ajax({
             // url: URL + 'Admin/setMailInfo',
-            url: 'http://localhost/xmail/index.php/Home/Admin/setMailInfo',
+            url: 'http://www.sxbox.cc/xmail/index.php/Home/Admin/setMailInfo',
             type: 'POST',
             dataType: 'json',
             data: info

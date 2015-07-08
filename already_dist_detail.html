@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>邮件详情</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/menu-css.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" href="css/detail.css">   
+</head>
+
+<body>
+    <div class="topbar-wrap white">
+        <div class="topbar-inner clearfix">
+            <div class="topbar-logo-wrap clearfix">
+                <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
+                <ul class="navbar-list clearfix">
+                    <li><a class="on" href="index.html">首页</a></li>
+                </ul>
+            </div>
+            <div class="top-info-wrap">
+                <ul class="top-info-list clearfix">
+                    <li id="username">景升</li>
+                    <li><a href="#">修改密码</a></li>
+                    <li><a href="#">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container clearfix">
+        <div class="sidebar-wrap">
+            <div class="sidebar-title">
+                <h1>菜单</h1>
+            </div>
+            <div class="sidebar-content">
+                <ul class="sidebar-list">
+                    <li>
+                        <a><i class="icon-font">&#xe003;</i>收件箱</a>
+                        <ul class="sub-menu">
+                            <li><a href="distributor.html"><i class="icon-font">&#xe004;</i>未分发</a></li>
+                            <li><a href="distributor.html"><i class="icon-font">&#xe037;</i>已分发</a></li>
+                            <li><a href="distributor.html"><i class="icon-font">&#xe046;</i>回退邮件</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--/sidebar-->
+        <div class="main-wrap">
+            <div class="crumb-wrap">
+                <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">邮件详情</span></div>
+            </div>
+          
+            <div class="result-wrap">
+                <form name="myform" id="myform" method="post">
+                    <!-- 内容开始 -->
+                    <div class="content">
+                        <div class="col-md-12" style="margin-top: 20px;">
+                            <div class="head">
+                                <span style="color: gray">标题:</span>
+                                <span id="title">关于小学期调时间这件事</span>
+                            </div>
+                            <div>
+                                <span style="color: gray">发件人:</span>
+                                <span id="from">李旭</span>
+                            </div>
+                            <div>
+                                <span style="color: gray">收件人:</span>
+                                <span id="to">魏星</span>
+                            </div>
+                            <!-- 具体内容开始 -->
+                            <div id="content" class="details">
+                                
+                            </div>
+                            <!-- 具体内容结束 -->
+                        </div>
+                        
+                    </div>
+                    <!-- 内容结束 -->
+                </form>
+            </div>
+        </div>
+        <!--/main-->
+    </div>
+</body>
+<script src="js/jquery.js"></script>
+<script type="text/javascript" src="js/menu_min.js"></script>
+<script src="js/dist_detail.js"></script>
+<script src="js/jsrender.min.js"></script>
+<script id="temple" type="text/x-jsrender">
+    <li><input data-id= {{:id}} type="checkbox">{{:nickname}}</li>
+</script>
+</html>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>分发人员</title>
+    <title>处理人员</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/common.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -39,9 +39,9 @@
                     <li>
                         <a><i class="icon-font">&#xe003;</i>收件箱</a>
                         <ul class="sub-menu">
+                             <li id="al_send"><a href="not_handler.html"><i class="icon-font">&#xe037;</i>未处理</a></li>
                             <li id="not_send"><a href="already_handler.html"><i class="icon-font">&#xe004;</i>已处理</a></li>
-                            <li id="al_send"><a href="not_handler.html"><i class="icon-font">&#xe037;</i>未处理</a></li>
-                            <li id="sendback"><a href="not_passed.html"><i class="icon-font">&#xe046;</i>回退邮件</a></li>
+                            <li id="sendback"><a href="sendback_handler.html"><i class="icon-font">&#xe046;</i>回退邮件</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -50,7 +50,7 @@
         <!--/sidebar-->
         <div class="main-wrap">
             <div class="crumb-wrap">
-                <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">作品管理</span></div>
+                <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">收件箱</span></div>
             </div>
             <div class="search-wrap">
                 <div class="search-content">
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div id="right">
-                <iframe src="already_handler.html" frameborder="0" width=100% height=600px scrolling="no" name="iframe"></iframe>
+                <iframe src="not_handler.html" frameborder="0" width=100% height=600px scrolling="no" name="iframe"></iframe>
             </div>
           
         </div>

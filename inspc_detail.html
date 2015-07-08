@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/menu-css.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/iosOverlay.css">
+    <link rel="stylesheet" href="css/flat-ui.css">
     <link rel="stylesheet" type="text/css" href="css/common.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/simditor.css" />
     <link rel="stylesheet" href="css/detail.css">
 
    
@@ -42,8 +45,8 @@
                     <li>
                         <a><i class="icon-font">&#xe003;</i>收件箱</a>
                         <ul class="sub-menu">
-                            <li><a href="inspector.html"><i class="icon-font">&#xe004;</i>已审核</a></li>
-                            <li><a href="inspector.html"><i class="icon-font">&#xe037;</i>未审核</a></li>
+                            <li><a href="inspector.html"><i class="icon-font">&#xe004;</i>未审核</a></li>
+                            <li><a href="inspector.html"><i class="icon-font">&#xe037;</i>审核通过</a></li>
                             <li><a href="inspector.html"><i class="icon-font">&#xe046;</i>回退邮件</a></li>
                         </ul>
                     </li>
@@ -53,40 +56,35 @@
         <!--/sidebar-->
         <div class="main-wrap">
             <div class="crumb-wrap">
-                <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">作品管理</span></div>
+                <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">邮件详情</span></div>
             </div>
           
             <div class="result-wrap">
                 <form name="myform" id="myform" method="post">
-                    <div class="result-title">
-                        <div class="result-list">
-                            <a href="insert.html"><i class="icon-font"></i>新增作品</a>
-                            <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
-                            <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
-                        </div>
-                    </div>
                     <!-- 内容开始 -->
                     <div class="content">
                         <div class="col-md-12" style="margin-top: 20px;">
-                            <div class="head">
-                                <span style="color: gray">标题:</span>
-                                <span id="title">关于小学期调时间这件事</span>
+                            <div class="head" style="margin-bottom: 5px;">
+                                <span class="label label-primary" >标题</span> :
+                                <b id="title" >关于小学期调时间这件事</b>
+                            </div>
+                            <div style="margin-bottom: 5px;">
+                                <span class="tag label label-success">发件人</span> :
+                                <span id="from" c>李旭</span>
                             </div>
                             <div>
-                                <span style="color: gray">发件人:</span>
-                                <span id="from">李旭</span>
-                            </div>
-                            <div>
-                                <span style="color: gray">处理人:</span>
-                                <span id="handler">魏星</span>
+                                <span class="label label-success">收件人</span> :
+                                <span id="handler" >魏星</span>
                             </div>
                             <!-- 具体内容开始 -->
-                            <div id="content" class="details">
+                            <div id="content" class="form-control details">
                                 
                             </div>
+                            <textarea id="editor" class="form-control" style="height:80px;width:100%;margin-bottom:10px;" >
+                            </textarea>
                             <!-- 具体内容结束 -->
-                            <input type="button" id="send" class="btn btn-info" value="审核通过并发送">
-                            <input type="button" id="sendback" class="btn btn-info" value="审核不通过并退回">   
+                            <input style="margin-top: 10px" type="button" id="send" class="btn btn-primary" value="审核通过并发送">
+                            <input style="margin-top: 10px" type="button" id="sendback" class="btn btn-danger" value="审核不通过并退回">   
                         </div>
                         
                     </div>
@@ -100,7 +98,16 @@
 <script src="js/jquery.js"></script>
 <script type="text/javascript" src="js/menu_min.js"></script>
 <script src="js/inspc_detail.js"></script>
+<script src="js/iosOverlay.js"></script>
+<script src="js/prettify.js"></script>
 <script src="js/jsrender.min.js"></script>
+<script src="js/flat/flat-ui.min.js"></script>
+<script type="text/javascript" src="js/simditor-all.js"></script>
+  <script type="text/javascript">
+    var editor = new Simditor({
+      textarea: $('#editor')
+    });
+  </script>
 
 <script id="temple" type="text/x-jsrender">
     <li><input data-id= {{:id}} type="checkbox">{{:nickname}}</li>

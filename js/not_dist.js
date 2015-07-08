@@ -25,9 +25,6 @@ $(document).ready(function() {
                                 + '<td><a data-detail=true data-id='+ email_id +' href="dist_detail.html" >' + email_title + '</a></td>' 
                                 + '<td>' + create_time + '</td>' 
                                 + '<td>' + '<a>' + isdistributed + '</a>' + '</td>' 
-                                + '<td>' 
-                                + '<button class="btn btn-default">删除</button>' 
-                                + '</td>' 
                                 + '</tr>';
                     $(".result-tab").append(text);
 

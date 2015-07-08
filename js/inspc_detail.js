@@ -4,6 +4,8 @@ var session = window.sessionStorage;
 $(document).ready(function() {
 	 console.log(session.chooseid);
     getContent();
+    sendback();
+    $("#username").text(session.username);
 });
 
 function getContent() {
@@ -17,9 +19,7 @@ function getContent() {
             }
         })
         .done(function(data) {
-            console.log(data);
             var obj = data.data[0];
-            console.log(obj);
             if (data.status) {
                 var email_id = obj.mid;
                 var email_title = obj.mtitle;
@@ -31,15 +31,52 @@ function getContent() {
                 $("#title").text(email_title);
                 $("#from").text(email_from);
                 $("#handler").text(reply_from);
-                $("#content").append("邮件内容:<br/>"+email_content+"<br/><br/><br/><br/><hr/>回复内容：<br/>"+reply_content);
-            }
-            console.log("success");
+                var content = '邮件内容:<br/><span>'+email_content+'</span><br/><br/><br/><br/><hr/>回复内容：<br/><span>'+reply_content+'</span>';
+                $("#content").html(content);
+                console.log('获取邮件内容成功');
+            }   
         })
         .fail(function() {
-            console.log("error");
+            console.log('获取邮件内容失败');
         })
         .always(function() {
-            console.log("complete");
         });
 
+}
+
+function sendback(){
+    $("#sendback").click(function(){
+        var info = {
+            'email_id':session.chooseid,
+            'message':$("#editor").val()
+        }
+        $.ajax({
+            url: URL+'Check/checkMessage',
+            type: 'POST',
+            dataType: 'json',
+            data: info
+        })
+        .done(function(data) {
+            console.log("邮件送回重新审核成功");
+            if (data.status) {
+                iosOverlay({
+                        text: "发送成功!",
+                        duration: 2e3,
+                        icon: 'images/check.png'
+                    });
+            }
+
+        })
+        .fail(function() {
+            console.log("邮件送回重新审核失败");
+            iosOverlay({
+                        text: "发送失败!",
+                        duration: 2e3,
+                        icon: 'images/cross.png'
+                    });
+        })
+        .always(function() {
+        });
+        
+    })
 }

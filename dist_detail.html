@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/menu-css.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/iosOverlay.css">
     <link rel="stylesheet" type="text/css" href="css/common.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+
     <link rel="stylesheet" href="css/detail.css">   
 </head>
 
@@ -23,7 +26,7 @@
             </div>
             <div class="top-info-wrap">
                 <ul class="top-info-list clearfix">
-                    <li id="username">景升</li>
+                    <li id="username"></li>
                     <li><a href="#">修改密码</a></li>
                     <li><a href="#">退出</a></li>
                 </ul>
@@ -51,24 +54,17 @@
         <!--/sidebar-->
         <div class="main-wrap">
             <div class="crumb-wrap">
-                <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">作品管理</span></div>
+                <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">邮件详情</span></div>
             </div>
-          
             <div class="result-wrap">
                 <form name="myform" id="myform" method="post">
-                    <div class="result-title">
-                        <div class="result-list">
-                            <a href="insert.html"><i class="icon-font"></i>新增作品</a>
-                            <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
-                            <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
-                        </div>
-                    </div>
+                    
                     <!-- 内容开始 -->
                     <div class="content">
                         <div class="col-md-9" style="margin-top: 20px;">
                             <div class="head">
                                 <span style="color: gray">标题:</span>
-                                <span id="title">关于小学期调时间这件事</span>
+                                <b id="title">关于小学期调时间这件事</b>
                             </div>
                             <div>
                                 <span style="color: gray">发件人:</span>
@@ -79,19 +75,17 @@
                                 <span id="to">魏星</span>
                             </div>
                             <!-- 具体内容开始 -->
-                            <div id="content" class="details">
+                            <div id="content" class="form-control details">
                                 
                             </div>
                             <!-- 具体内容结束 -->
                         </div>
                         <div class="col-md-3" style="margin-top: 68px;">
-                            <div style="text-align: center;font-size: 1.2em;color: gray">
+                            <div style="text-align: center;font-size: 1.2em;color: gray" class="">
                                 <i class="fa fa-user"></i> 选择分发人
                             </div>
                             <!-- 选择处理人员开始 -->
-                            <div style="border:1px solid #cdcdcd;height:350px;background-color: #f7f8f9;padding: 10px 5px;">
-                                <input style="display: inline-block;width: 90%;" type="text" class="form-control" placeholder="查找联系人">
-                                <span class="fa fa-search" style="color:gray;display: inline-block;cursor: pointer"></span>
+                            <div class="form-control" style="border:1px solid #cdcdcd;height:350px;background-color: #f7f8f9;padding: 10px 5px;">
                                 <div class="menu">
                                     <ul>
                                         <li><a class="active" style="cursor: pointer">财务部
@@ -120,13 +114,12 @@
 <script src="js/jquery.js"></script>
 <script type="text/javascript" src="js/menu_min.js"></script>
 <script src="js/dist_detail.js"></script>
+<script src="js/iosOverlay.js"></script>
+<script src="js/prettify.js"></script>
 <script src="js/jsrender.min.js"></script>
-
-<<<<<<< HEAD:detail.html
-</html>
-=======
 <script id="temple" type="text/x-jsrender">
     <li><input data-id= {{:id}} type="checkbox">{{:nickname}}</li>
 </script>
+
+
 </html>
->>>>>>> c8f7979c6e06cb57ad4621500a784d3b6c535969:dist_detail.html

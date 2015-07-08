@@ -8,9 +8,13 @@ $(document).ready(function (){
 	$(".menu li").menu();
 	getEmail();
 	getUserList();
-	
+	test();
 }); 
 
+function test(){
+	$("#content").html('<html><body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;" class="">wo <span style="font-size: 96px;" class="">ye&nbsp;sei</span><div class=""><span style="font-size: 11px;" class=""><i class=""><u class="">zuile</u></i></span></div></body></html>');
+
+}
 
 function getEmail(){
 	$.ajax({
@@ -107,12 +111,21 @@ function sendEmail(){
 			console.log(data);
 			if (data.status) {
 				console.log(data.message);
-				$("#tip").fadeIn(500);
-				setTimeout(function(){$("#tip").fadeOut(500);}, 2000);
+				// $("#tip").fadeIn(500);
+				// setTimeout(function(){$("#tip").fadeOut(500);}, 2000);
+				iosOverlay({
+                        text: "分发成功!",
+                        duration: 2e3,
+                        icon: 'images/check.png'
+                    });
 			}
 		})
 		.fail(function() {
-			console.log("error");
+			iosOverlay({
+                        text: "分发失败!",
+                        duration: 2e3,
+                        icon: 'images/cross.png'
+                    });
 		})
 		.always(function() {
 			console.log("complete");

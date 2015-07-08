@@ -22,14 +22,10 @@ $(document).ready(function() {
                     var text = '<tr data-id=' + email_id + '>' 
                                 + '<td class="tc"><input id=' + email_id + ' type="checkbox"></td>' 
                                 + '<td>' + email_from + '</td>' 
-                                + '<td><a data-detail=true data-id='+ email_id +' href="dist_detail.html" >' + email_title + '</a></td>' 
+                                + '<td><a data-detail=true data-id='+ email_id +' href="already_dist_detail.html" >' + email_title + '</a></td>' 
                                 + '<td>' + create_time + '</td>' 
                                 + '<td>' + '<a>' + isdistributed + '</a>' + '</td>' 
-                                + '<td>' 
-                                + '<button class="btn btn-default">删除</button>' 
-                                + '</td>' 
                                 + '</tr>';
-                    console.log(text);
                     $(".result-tab").append(text);
 
                 });

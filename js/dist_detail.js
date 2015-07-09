@@ -8,13 +8,7 @@ $(document).ready(function (){
 	$(".menu li").menu();
 	getEmail();
 	getUserList();
-	test();
 }); 
-
-function test(){
-	$("#content").html('<html><body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;" class="">wo <span style="font-size: 96px;" class="">ye&nbsp;sei</span><div class=""><span style="font-size: 11px;" class=""><i class=""><u class="">zuile</u></i></span></div></body></html>');
-
-}
 
 function getEmail(){
 	$.ajax({
@@ -118,6 +112,8 @@ function sendEmail(){
                         duration: 2e3,
                         icon: 'images/check.png'
                     });
+				setTimeout(function(){window.location.href = "distributor.html";}, 3000);
+				
 			}
 		})
 		.fail(function() {

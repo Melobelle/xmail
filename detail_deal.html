@@ -26,7 +26,7 @@
             </div>
             <div class="top-info-wrap">
                 <ul class="top-info-list clearfix">
-                    <li id="username">root</li>
+                    <li id="username"></li>
                     <li><a href="password.html">修改密码</a></li>
                     <li><a href="handler.html">退出</a></li>
                 </ul>
@@ -45,6 +45,7 @@
                             <li><a href="handler.html"><i class="icon-font">&#xe037;</i>未处理</a></li>
                             <li><a href="handler.html"><i class="icon-font">&#xe004;</i>已处理</a></li>
                             <li><a href="handler.html"><i class="icon-font">&#xe046;</i>回退邮件</a></li>
+                            <li id="send"><a href="detail_write.html" target="_parent"><i class="icon-font">&#xe004;</i>发送邮件</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -62,15 +63,15 @@
                         <div class="col-md-12" style="margin-top: 20px;">
                             <div class="head" style="margin-bottom: 5px;">
                                 <span class="label label-primary">标题</span> :
-                                <b id="title">关于小学期调时间这件事</b>
+                                <b id="title"></b>
                             </div>
                             <div style="margin-bottom: 5px;">
                                 <span class="tag label label-success">发件人</span> :
-                                <span id="from" c>李旭</span>
+                                <span id="from" ></span>
                             </div>
                             <div>
                                 <span class="label label-success">收件人</span> :
-                                <span id="to">魏星</span>
+                                <span id="to"></span>
                             </div>
                             <!-- 具体内容开始 -->
                             <div class="details form-control">
@@ -135,6 +136,7 @@ $(document).ready(function() {
                         duration: 2e3,
                         icon: 'images/check.png'
                     });
+                    setTimeout(function(){window.location.href = "handler.html";}, 3000);
                 }
 
                 return false;
@@ -201,6 +203,7 @@ function sendback() {
                         duration: 2e3,
                         icon: 'images/check.png'
                     });
+                    setTimeout(function(){window.location.href = "handler.html";}, 3000);
                 }
 
             })
@@ -239,6 +242,7 @@ function answer(){
                         duration: 2e3,
                         icon: 'images/check.png'
                     });
+                    setTimeout(function(){window.location.href = "handler.html";}, 3000);
                 }
             })
             .fail(function() {

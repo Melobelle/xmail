@@ -69,6 +69,7 @@ function sendback(){
                         duration: 2e3,
                         icon: 'images/check.png'
                     });
+                setTimeout(function(){window.location.href = "inspector.html";}, 3000);
             }
 
         })
@@ -104,7 +105,7 @@ function send(){
                         duration: 2e3,
                         icon: 'images/check.png'
                     });
-            console.log("success");
+                setTimeout(function(){window.location.href = "inspector.html";}, 3000);
             }
         })
         .fail(function() {

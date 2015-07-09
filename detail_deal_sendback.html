@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/menu-css.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/iosOverlay.css">
     <link rel="stylesheet" href="css/flat-ui.css">
     <link rel="stylesheet" type="text/css" href="css/common.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -38,7 +39,6 @@
     <div class="container clearfix">
         <div class="sidebar-wrap">
             <div class="sidebar-title">
-                <h1>菜单</h1>
             </div>
             <div class="sidebar-content">
                 <ul class="sidebar-list">
@@ -102,6 +102,8 @@
 <script src="js/jquery.js"></script>
 <script src="js/flat/flat-ui.min.js"></script>
 <script type="text/javascript" src="js/simditor-all.js"></script>
+<script src="js/iosOverlay.js"></script>
+<script src="js/prettify.js"></script>
 <script type="text/javascript" src="js/menu_min.js"></script>
 
   <script type="text/javascript">
@@ -136,14 +138,22 @@
              })
              .done(function(data) {
                  console.log("success");
-                 alert("提交审核成功！");
+                 if (data.status) {
+                     iosOverlay({
+                        text: "发送成功!",
+                        duration: 2e3,
+                        icon: 'images/check.png'
+                    });
+                 }
              })
              .fail(function() {
-                 console.log("error");
+                 iosOverlay({
+                        text: "发送失败!",
+                        duration: 2e3,
+                        icon: 'images/cross.png'
+                    });
              })
              .always(function(data) {
-                console.log(data);
-                 console.log("complete");
              });
              
         });    

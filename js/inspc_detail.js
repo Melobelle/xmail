@@ -5,6 +5,7 @@ $(document).ready(function() {
 	 console.log(session.chooseid);
     getContent();
     sendback();
+    send();
     $("#username").text(session.username);
 });
 
@@ -28,12 +29,15 @@ function getContent() {
                 var reply_content = obj.pcontent;
                 var reply_from = obj.pfrom;
 
+
                 $("#title").text(email_title);
                 $("#from").text(email_from);
                 $("#handler").text(reply_from);
+
                 var content = '邮件内容:<br/><span>'+email_content+'</span><br/><br/><br/><br/><hr/>回复内容：<br/><span>'+reply_content+'</span>';
-                $("#content").html(content);
+                console.log(content);
                 console.log('获取邮件内容成功');
+                $("#content").html(content);
             }   
         })
         .fail(function() {
@@ -57,8 +61,9 @@ function sendback(){
             data: info
         })
         .done(function(data) {
-            console.log("邮件送回重新审核成功");
+            
             if (data.status) {
+                console.log("邮件送回重新审核成功");
                 iosOverlay({
                         text: "发送成功!",
                         duration: 2e3,
@@ -69,6 +74,40 @@ function sendback(){
         })
         .fail(function() {
             console.log("邮件送回重新审核失败");
+            iosOverlay({
+                        text: "发送失败!",
+                        duration: 2e3,
+                        icon: 'images/cross.png'
+                    });
+        })
+        .always(function() {
+        });
+        
+    })
+}
+
+function send(){
+    $("#send").click(function(){
+        var info = {
+            'email_id':session.chooseid
+        }
+        $.ajax({
+            url: URL+'Check/postMessage',
+            type: 'POST',
+            dataType: 'json',
+            data: info
+        })
+        .done(function(data) {
+            if (data.status) {
+                iosOverlay({
+                        text: "发送成功!",
+                        duration: 2e3,
+                        icon: 'images/check.png'
+                    });
+            console.log("success");
+            }
+        })
+        .fail(function() {
             iosOverlay({
                         text: "发送失败!",
                         duration: 2e3,

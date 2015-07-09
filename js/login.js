@@ -20,7 +20,7 @@ function login() {
             data: info
         })
         .done(function(data) {
-        	console.log(data);
+            console.log(data);
             if (data.status) {
                 session.username = $("#username").val();
                 var tp = data.data.role;
@@ -36,6 +36,9 @@ function login() {
                         break;
                     case '3':
                         window.location.href = "inspector.html";
+                        break;
+                    case '4':
+                        window.location.href = "setting.html";
                         break;
                 }
             }

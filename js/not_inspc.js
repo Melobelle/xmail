@@ -18,8 +18,8 @@ $(document).ready(function() {
                     var create_time = obj.pcreate_time;
                     var update_time = obj.pupdate_time;
                     var vstatus = obj.vstatus;
-
-                    var text = '<tr data-id=' + email_id + '>' 
+                    if (vstatus == 0) {
+                        var text = '<tr data-id=' + email_id + '>' 
                                 + '<td class="tc"><input id=' + email_id + ' type="checkbox"></td>' 
                                 + '<td>' + email_from + '</td>' 
                                 + '<td><a data-detail=true data-id='+ email_id +' href="inspc_detail.html" >' + email_title + '</a></td>' 
@@ -27,6 +27,8 @@ $(document).ready(function() {
                                 + '<td>' + '<a>' + vstatus + '</a>' + '</td>' 
                                 + '</tr>';
                     $(".result-tab").append(text);
+                    }
+                    
 
                 });
             }

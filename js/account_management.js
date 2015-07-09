@@ -59,7 +59,7 @@ function deleteUser(id) {
             console.log(data);
             console.log("success");
             alert('删除成功');
-            window.location.href = 'setting.html'
+            window.location.href = 'account_management.html'
         })
         .fail(function() {
             console.log("error");

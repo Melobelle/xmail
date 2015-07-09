@@ -13,7 +13,7 @@
             <form name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
-                        <a href="add_user.html"><i class="icon-font"></i>新增用户</a>
+                        <a id="add" style="cursor: pointer"><i class="icon-font"></i>新增用户</a>
                     </div>
                 </div>
                 <div class="result-content">
@@ -33,4 +33,9 @@
 </body>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/account_management.js"></script>
+<script>
+    $("#add").click(function(event) {
+        window.location.href="add_user.html";
+    });
+</script>
 </html>

@@ -19,7 +19,7 @@ function submitUser() {
             console.log(data);
             console.log("success");
             alert('添加成功');
-            window.location.href = 'setting.html'
+            window.location.href = 'account_management.html'
         })
         .fail(function() {
             console.log("error");
